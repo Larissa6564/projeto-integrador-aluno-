@@ -1,149 +1,93 @@
-# projeto-integrador-aluno-
-<!DOCTYPE html>
-<html lang="pt-Br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud Comentários</title>
-</head>
-<body>
-    <div>
-        <h1>CRUD de comentários</h1>
+🌍 Água: Nosso Bem Mais Precioso 💧
+Projeto desenvolvido para o Projeto Integrador da Liga STEAM / ArcelorMittal.
 
-        <input type="text" id="buscaTexto" placeholder="buscar...">
-        <input type="text" id="comentario" placeholder="Digite um comentario">
+Conscientização ambiental através da tecnologia 🌱
 
-        <button type="submit" onclick="salvar()">Salvar comentário</button>
+📖 Sobre o Projeto
+Este projeto foi criado com o objetivo de conscientizar as pessoas sobre a importância da economia de água e do consumo responsável.
 
-        <ul id="lista">
-        </ul>
-    </div>
+Através de um site desenvolvido em HTML e CSS, nossa equipe busca mostrar como pequenas atitudes podem gerar grandes impactos no futuro do planeta.
 
-    <script>
-        let comentarios = []
+🚀 Tecnologias Utilizadas
+  
 
-        let editando = null
+🎯 Objetivos
+Incentivar o uso consciente da água
+Desenvolver habilidades em programação web
+Trabalhar em equipe
+Criar um projeto tecnológico com impacto social
+💡 Funcionalidades do Site
+📱 Página inicial estilo cartaz
+📖 Página explicando a campanha
+✅ Página com ações sustentáveis
+🔗 Navegação entre páginas
+🎨 Layout estilizado com CSS
+👩‍💻 Equipe
+Integrante	Função
+Alexandre	Desenvolvimento
+📂 Estrutura do Projeto
+projeto/
+│
+├── index.html
+├── sobre.html
+├── acoes.html
+│
+├── css/
+│   └── style.css
+│
+├── imagens/
+│
+└── README.md
+✅ Progresso do Projeto
+ Criar repositório
+ Fazer README
+ Estruturar páginas HTML
+ Adicionar CSS completo
+ Melhorar responsividade
+ Publicar projeto
+🌱 Mensagem da Equipe
+“Cada gota economizada hoje ajuda a construir o amanhã.” 💧
 
-        let input = document.getElementById("comentario")
+Feito com dedicação pela nossa equipe ❤️
 
-        let getStorage = localStorage.getItem("comentarios")
+About
+projeto-integrador-Aluno.vercel.app
+Resources
+ Readme
+ Activity
+Stars
+ 0 stars
+Watchers
+ 0 watching
+Forks
+ 0 forks
+Report repository
+Releases
+No releases published
+Deployments
+2
+ github-pages 2 weeks ago
+ Production 2 weeks ago
+Packages
+No packages published
+Contributors
+1
+@AlexandreProz1
+AlexandreProz1
+Languages
+HTML
+50.8%
+ 
+CSS
+36.1%
+ 
+JavaScript
+13.1%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Sta
         
-
-        if(getStorage != null){
-            comentarios = JSON.parse(getStorage)
-
-            renderizar()
-        }
-
-        function renderizar(listaRecebida = comentarios){
-            let lista = document.querySelector("#lista")
-
-            lista.innerHTML = ""
-
-            for(let i = 0; i < listaRecebida.length; i++){
-                
-                const iOrignal = comentarios.indexOf(listaRecebida[i])
-         
-                lista.innerHTML += `
-                    <li>
-                        <p id="a${i}">${listaRecebida[i]}</p>
-
-                        <div>
-                            <button onclick="editar(${i})">📝</button>
-                            <button onclick="deletar(${i})"> 🗑️</button>
-                        </div>
-                    </li>
-                `
-                      
-    
-                 
-            }
-            
-        }
-        
-        function salvar(){
-            
-
-            let comentario = input.value
-
-
-            comentarios.push(comentario)
-            
-           
-            input.value = ""
-            
-            salvarStorage()
-            renderizar()
-        }
-        
-        function editar(indice){
-            const btnEditar = document.querySelector(button[onclick='editar(${indice})'])
-            btnEditar.onclick = salvarEdicao
-            btnEditar.textContent = "✅"
-
-            document.querySelector(button[onclick='deletar(${indice})']).style.display = "none"
-            
-            const textoEdit = document.querySelector(#a${indice})
-            const inputEdit = document.createElement("input")
-
-            inputEdit.id = edicaoAtual${indice}
-            inputEdit.value = textoEdit.textContent
-            textoEdit.replaceWith(inputEdit) 
-        
-            editando = indice
-            
-        }
-         function salvarEdicao () {
-            if(editando != null){
-                const inputEditado = document.querySelector(#edicaoAtual${editando})
-
-                comentarios[editando] = inputEditado.value
-
-                editando = null
-
-                renderizar()
-            }
-        }
-        
-        function deletar(indice){
-            comentarios.splice(indice, 1)
-
-            salvarStorage()
-
-            renderizar()
-        }
-        
-        input.addEventListener("keydown", function (e){
-            if(e.key == "Enter"){
-                salvar()
-            }
-        })
-
-        function salvarStorage(){
-            localStorage.setItem("comentarios", JSON.stringify(comentarios))
-
-        }
-       
-        const inputBusca = document.querySelector('#buscaTexto')
-
-        inputBusca.addEventListener('input', () => {
-            const textoBusca = inputBusca.value.toLowerCase()
-
-             if(textoBusca == ""){
-            renderizar(comentarios)
-            return
-        }
-
-        const resultado = comentarios.filter((comentario) => {
-            const comentarioMinisculo = comentario.toLowerCase()
-
-            return comentarioMinisculo.includes(textoBusca)
-        })
-        
-        renderizar(resultado)
-        })
-
-       
-    </script>
-</body>
-</html>
